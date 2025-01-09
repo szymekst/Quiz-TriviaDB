@@ -1,4 +1,4 @@
-import FetchTrivia from "@/_components/FetchTrivia";
+import FetchTrivia from "@/components/FetchTrivia";
 
 export default function Home() {
     return (

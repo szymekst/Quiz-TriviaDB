@@ -1,5 +1,5 @@
 "use client";
-import { fetchData } from "@/_utils/api";
+import { fetchData } from "@/services/api";
 import { useEffect } from "react";
 
 const getToken = () => {
@@ -41,10 +41,6 @@ const getSessionToken = async (resetToken = false) => {
     return token;
 };
 
-const resetSessionToken = () => {
-    getSessionToken(true);
-};
-
 const FetchTrivia = () => {
     useEffect(() => {
         getSessionToken();
@@ -53,7 +49,7 @@ const FetchTrivia = () => {
         <div>
             <a
                 onClick={() => {
-                    resetSessionToken();
+                    getSessionToken(true);
                 }}
                 className="cursor-pointer p-3 bg-red-700"
             >
