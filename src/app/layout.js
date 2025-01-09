@@ -1,8 +1,9 @@
-import "./globals.css";
+import "@/_assets/styles/globals.css";
 
 export const metadata = {
     title: "Trivia Quiz App",
-    description: "Test your knowledge",
+    description:
+        "Test your knowledge with quizzes based on a database of questions from Trivia DB.",
 };
 
 export default function RootLayout({ children }) {
