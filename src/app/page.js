@@ -1,9 +1,9 @@
-import FetchTrivia from "@/components/FetchTrivia";
+import CategorySection from "@/components/CategorySection";
 
 export default function Home() {
     return (
         <>
-            <FetchTrivia></FetchTrivia>
+            <CategorySection></CategorySection>
         </>
     );
 }

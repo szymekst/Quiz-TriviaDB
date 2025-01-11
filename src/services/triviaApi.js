@@ -1,6 +1,4 @@
-"use client";
-import { fetchData } from "@/services/api";
-import { useEffect } from "react";
+import { fetchData } from "./fetchApi";
 
 const getToken = () => {
     const token = localStorage.getItem("sessionToken");
@@ -40,23 +38,3 @@ const getSessionToken = async (resetToken = false) => {
 
     return token;
 };
-
-const FetchTrivia = () => {
-    useEffect(() => {
-        getSessionToken();
-    });
-    return (
-        <div>
-            <a
-                onClick={() => {
-                    getSessionToken(true);
-                }}
-                className="cursor-pointer p-3 bg-red-700"
-            >
-                Reset token
-            </a>
-        </div>
-    );
-};
-
-export default FetchTrivia;
