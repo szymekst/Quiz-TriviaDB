@@ -39,4 +39,10 @@ const getSessionToken = async (resetToken = false) => {
     return token;
 };
 
+export const getCategories = async () => {
+    const categories = await fetchData("https://opentdb.com/api_category.php");
+
+    return categories.trivia_categories;
+};
+
 export default getSessionToken;

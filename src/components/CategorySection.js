@@ -1,23 +1,25 @@
 "use client";
-import getSessionToken from "@/services/triviaApi";
+import { getCategories } from "@/services/triviaApi";
 import { useEffect, useState } from "react";
 
 const CategorySection = () => {
-    const [token, setToken] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const fetchToken = async () => {
-            const token = await getSessionToken();
-            setToken(token);
+        const fetchCategories = async () => {
+            const categories = await getCategories();
+            setCategories(categories);
         };
 
-        fetchToken();
+        fetchCategories();
     }, []);
 
     return (
         <div>
             <h1>Categories</h1>
-            {token ? <p>Token: {token}</p> : <p>Loading token...</p>}
+            {categories.length > 0
+                ? categories.map((cat, index) => <p key={index}>{cat.name}</p>)
+                : "Loading..."}
         </div>
     );
 };
