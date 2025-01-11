@@ -6,7 +6,7 @@ export const fetchData = async (url) => {
             throw new Error(`Error! Status: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = Promise.resolve(response.json());
         return data;
     } catch (error) {
         console.error("Fetch error: ", error);

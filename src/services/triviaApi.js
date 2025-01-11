@@ -13,7 +13,7 @@ const getToken = () => {
         return null;
     }
 
-    return token;
+    return token.split("___")[0];
 };
 
 const fetchNewToken = async () => {
@@ -38,3 +38,5 @@ const getSessionToken = async (resetToken = false) => {
 
     return token;
 };
+
+export default getSessionToken;
