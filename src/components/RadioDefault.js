@@ -1,19 +1,18 @@
-import { Radio, RadioGroup } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
-const plans = [
-    { name: "Startup", ram: "12GB", cpus: "6 CPUs", disk: "256GB SSD disk" },
-    { name: "Business", ram: "16GB", cpus: "8 CPUs", disk: "512GB SSD disk" },
-    { name: "Enterprise", ram: "32GB", cpus: "12 CPUs", disk: "1TB SSD disk" },
-];
+import { Radio, RadioGroup } from "@headlessui/react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+
+import decodeHTML from "@/utils/decodeHTML";
 
 const RadioDefault = ({ questionData = [], onChange }) => {
-    const [selected, setSelected] = useState(questionData.allAnswers[0]);
+    const [selected, setSelected] = useState(null);
     return (
         <div className="w-full px-4">
             <div className="mx-auto w-full max-w-md">
-                <p className="mb-2 font-bold">{questionData.question}</p>
+                <p className="mb-2 font-bold">
+                    {decodeHTML(questionData.question)}
+                </p>
                 <RadioGroup
                     value={selected}
                     onChange={(e) => {
