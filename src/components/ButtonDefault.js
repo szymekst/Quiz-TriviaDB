@@ -1,10 +1,13 @@
-import React from "react";
+import { Button } from "@headlessui/react";
 
-const ButtonDefault = ({ text = "" }) => {
+const ButtonDefault = ({ text = "", passFunc }) => {
     return (
-        <button className="py-5 px-16 bg-gray-200 rounded-lg uppercase font-semibold text-white hover:bg-green-100 transition-all">
+        <Button
+            className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white justify-center"
+            onClick={passFunc}
+        >
             {text}
-        </button>
+        </Button>
     );
 };
 
