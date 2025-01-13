@@ -1,4 +1,4 @@
-import { fetchData } from "./fetchApi";
+import fetchApi from "./fetchApi";
 
 const getToken = () => {
     const token = localStorage.getItem("sessionToken");
@@ -17,7 +17,7 @@ const getToken = () => {
 };
 
 const fetchNewToken = async () => {
-    const tokenData = await fetchData(
+    const tokenData = await fetchApi(
         "https://opentdb.com/api_token.php?command=request"
     );
 

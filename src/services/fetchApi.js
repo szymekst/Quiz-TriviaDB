@@ -1,4 +1,4 @@
-export const fetchData = async (url) => {
+const fetchApi = async (url) => {
     try {
         const response = await fetch(url);
 
@@ -6,9 +6,11 @@ export const fetchData = async (url) => {
             throw new Error(`Error! Status: ${response.status}`);
         }
 
-        const data = Promise.resolve(response.json());
+        const data = response.json();
         return data;
     } catch (error) {
         console.error("Fetch error: ", error);
     }
 };
+
+export default fetchApi;
