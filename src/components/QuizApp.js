@@ -1,14 +1,15 @@
 "use client";
-import { getCategories } from "@/services/triviaApi";
-import { useEffect, useState } from "react";
-
-import categories from "@/constants/categories";
+import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 
-const QuizApp = () => {
-    const [category, setCategory] = useState(0);
+import categories from "@/constants/categories";
+import difficulties from "@/constants/difficulties";
 
-    const link = category;
+const QuizApp = () => {
+    const [started, isStarted] = useState(false);
+    const [category, setCategory] = useState(0);
+    const [difficulty, setDifficulty] = useState("");
+
     // useEffect(() => {
     //     const fetchCategories = async () => {
     //         const categories = await getCategories();
@@ -21,13 +22,24 @@ const QuizApp = () => {
     return (
         <div>
             <div className="container">
-                <DropdownMenu
-                    heading="Select category"
-                    dataToDisplay={categories}
-                    onChange={(selectedCategory) => {
-                        setCategory(selectedCategory.id);
-                    }}
-                />
+                {!started && (
+                    <>
+                        <DropdownMenu
+                            heading="Select category"
+                            dataToDisplay={categories}
+                            onChange={(selectedCategory) => {
+                                setCategory(selectedCategory.value);
+                            }}
+                        />
+                        <DropdownMenu
+                            heading="Select difficulty"
+                            dataToDisplay={difficulties}
+                            onChange={(selectedDifficulty) => {
+                                setCategory(selectedDifficulty.value);
+                            }}
+                        />
+                    </>
+                )}
             </div>
         </div>
     );
