@@ -9,21 +9,6 @@ const config = {
         container: {
             center: true,
         },
-        colors: {
-            transparent: "transparent",
-            current: "currentColor",
-            white: "#F4F3F6",
-            black: "#060710",
-            gray: {
-                100: "#EDE8E3",
-                200: "#757575",
-            },
-            green: {
-                100: "#31CD63",
-                200: "#45C486",
-            },
-            blue: "#191D63",
-        },
     },
     plugins: [],
 };
