@@ -10,10 +10,16 @@ import {
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid";
 import { CheckIcon } from "@heroicons/react/20/solid";
 
-const DropdownMenu = ({ heading = "", dataToDisplay = [] }) => {
+const DropdownMenu = ({ heading = "", dataToDisplay = [], onChange }) => {
     const [selected, setSelected] = useState(dataToDisplay[0]);
     return (
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox
+            value={selected}
+            onChange={(e) => {
+                setSelected(e);
+                onChange(e);
+            }}
+        >
             <Label className="block text-sm/6 font-medium text-gray-900">
                 {heading}
             </Label>

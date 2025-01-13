@@ -6,8 +6,9 @@ import categories from "@/constants/categories";
 import DropdownMenu from "./DropdownMenu";
 
 const QuizApp = () => {
-    // const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState(0);
 
+    const link = category;
     // useEffect(() => {
     //     const fetchCategories = async () => {
     //         const categories = await getCategories();
@@ -23,6 +24,9 @@ const QuizApp = () => {
                 <DropdownMenu
                     heading="Select category"
                     dataToDisplay={categories}
+                    onChange={(selectedCategory) => {
+                        setCategory(selectedCategory.id);
+                    }}
                 />
             </div>
         </div>
