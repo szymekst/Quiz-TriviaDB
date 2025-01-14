@@ -48,7 +48,11 @@ const RadioDefault = ({
                 <ButtonDefault
                     text={submitText}
                     className="w-full mt-5"
-                    passFunc={nextQuestion}
+                    passFunc={() => {
+                        nextQuestion();
+                        setSelected(null);
+                    }}
+                    disabled={!selected ? true : false}
                 />
             </div>
         </div>

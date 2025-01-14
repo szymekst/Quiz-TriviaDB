@@ -6,7 +6,7 @@ import RadioDefault from "./RadioDefault";
 const QuizStart = ({ questions, quitQuiz }) => {
     let [questionNo, setQuestionNo] = useState(0);
 
-    const [selectedAnswer, setSelectedAnswer] = useState([]);
+    const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     const nextQuestion = () => {
         questionNo < questions.length
@@ -19,9 +19,9 @@ const QuizStart = ({ questions, quitQuiz }) => {
             {questions[questionNo] && (
                 <RadioDefault
                     questionData={questions[questionNo]}
-                    onChange={(selectedAnswer) => {
-                        setSelectedAnswer([selectedAnswer]);
-                        console.log(selectedAnswer);
+                    onChange={(selectedAnswers) => {
+                        setSelectedAnswers([selectedAnswers]);
+                        console.log(selectedAnswers);
                     }}
                     nextQuestion={nextQuestion}
                     submitText={
