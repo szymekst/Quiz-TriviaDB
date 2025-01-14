@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import RadioDefault from "./RadioDefault";
 
-const QuizStart = ({ questions, quitQuiz, showResults }) => {
+const QuizStart = ({ questions, showResults }) => {
     let [questionNo, setQuestionNo] = useState(0);
 
     const [selectedAnswers, setSelectedAnswers] = useState([]);
@@ -14,8 +14,10 @@ const QuizStart = ({ questions, quitQuiz, showResults }) => {
     };
 
     useEffect(() => {
-        questionNo === questions.length && showResults(selectedAnswers);
-    });
+        if (questionNo === questions.length) {
+            showResults(selectedAnswers);
+        }
+    }, [questionNo, questions.length, selectedAnswers, showResults]);
 
     return (
         <>

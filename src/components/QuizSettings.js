@@ -32,7 +32,7 @@ const QuizSettings = ({ runQuiz }) => {
     const fetchData = async () => {
         const data = await fetchApi(triviaAPI);
 
-        data.results.map((res, id) => {
+        data.results.map((res) => {
             res.allAnswers = shuffle([
                 res.correct_answer,
                 ...res.incorrect_answers,
