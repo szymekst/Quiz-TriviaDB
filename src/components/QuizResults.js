@@ -10,7 +10,7 @@ const QuizResults = ({
     return (
         <>
             <p className="text-center">
-                You gave {correctAnswers} correct answers out of a possible{" "}
+                You gave {correctAnswers} correct answers to{" "}
                 {questionsData.length} questions!
             </p>
             <p className="text-center">Congratulations</p>
