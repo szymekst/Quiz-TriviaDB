@@ -25,7 +25,7 @@ const QuizSettings = ({ runQuiz }) => {
         };
 
         fetchToken();
-    }, []);
+    }, [token]);
 
     const triviaAPI = `https://opentdb.com/api.php?amount=${noQuestions}&category=${category}&difficulty=${difficulty}&token=${token}`;
 

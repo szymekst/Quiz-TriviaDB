@@ -14,8 +14,9 @@ const QuizApp = () => {
     const [questionsData, setQuestionsData] = useState(null);
     const [correctAnswers, setCorrectAnswers] = useState(0);
 
-    const runQuiz = (questionsData) => {
+    const runQuiz = async (questionsData) => {
         setQuestionsData(questionsData);
+
         setIsStarted(true);
     };
 
