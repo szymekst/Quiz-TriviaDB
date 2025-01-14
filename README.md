@@ -3,12 +3,12 @@ Test your knowledge by answering questions from the Open Trivia Database. Over 4
 Link to the site in the _About section_.<br>
 Feel free to rate the source code of this project.
 
+Thanks to [@Safdar Jamal](https://www.github.com/SafdarJamal). 
+His source code helped me understand the logic behind the quiz app and complete it.
+
 ## Content of Project
 - [Technologies](#technologies)
 - [OpenSource Code - Instalation Guide](#opensource-code---instalation-guide)
-
-Thanks to [@Safdar Jamal](https://www.github.com/SafdarJamal). 
-His source code helped me understand the logic behind the quiz app and complete it.
 
 ## Technologies
 * React.js
