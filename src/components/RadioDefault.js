@@ -3,9 +3,16 @@ import { useState } from "react";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
+import ButtonDefault from "./ButtonDefault";
+
 import decodeHTML from "@/utils/decodeHTML";
 
-const RadioDefault = ({ questionData = [], onChange }) => {
+const RadioDefault = ({
+    questionData = [],
+    onChange,
+    nextQuestion = "",
+    submitText = "",
+}) => {
     const [selected, setSelected] = useState(null);
     return (
         <div className="w-full px-4">
@@ -30,7 +37,7 @@ const RadioDefault = ({ questionData = [], onChange }) => {
                             <div className="flex w-full items-center justify-between">
                                 <div className="text-sm/6">
                                     <div className="flex gap-2 text-white/50">
-                                        <div>{answer}</div>
+                                        <div>{decodeHTML(answer)}</div>
                                     </div>
                                 </div>
                                 <CheckCircleIcon className="size-6 fill-white opacity-0 transition group-data-[checked]:opacity-100" />
@@ -38,6 +45,11 @@ const RadioDefault = ({ questionData = [], onChange }) => {
                         </Radio>
                     ))}
                 </RadioGroup>
+                <ButtonDefault
+                    text={submitText}
+                    className="w-full mt-5"
+                    passFunc={nextQuestion}
+                />
             </div>
         </div>
     );
