@@ -1,38 +1,41 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import RadioDefault from "./RadioDefault";
 
-const QuizStart = ({ questions, quitQuiz }) => {
+const QuizStart = ({ questions, quitQuiz, showResults }) => {
     let [questionNo, setQuestionNo] = useState(0);
 
     const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     const nextQuestion = () => {
-        questionNo < questions.length
-            ? setQuestionNo((prevQuestionNo) => prevQuestionNo + 1)
-            : quitQuiz;
+        questionNo <= questions.length - 1 &&
+            setQuestionNo((prevQuestionNo) => prevQuestionNo + 1);
     };
+
+    useEffect(() => {
+        questionNo === questions.length && showResults(selectedAnswers);
+    });
 
     return (
         <>
             {questions[questionNo] && (
                 <RadioDefault
                     questionData={questions[questionNo]}
-                    onChange={(selectedAnswers) => {
-                        setSelectedAnswers([selectedAnswers]);
-                        console.log(selectedAnswers);
-                    }}
                     nextQuestion={nextQuestion}
                     submitText={
                         questionNo < questions.length - 1
                             ? "Continue"
                             : "Go to Results"
                     }
+                    handleAnswer={(selectedAnswer) => {
+                        setSelectedAnswers((prevSelectedAnswer) => [
+                            ...prevSelectedAnswer,
+                            { id: questionNo, answer: selectedAnswer },
+                        ]);
+                    }}
                 />
             )}
-
-            <button onClick={quitQuiz}>End quiz</button>
         </>
     );
 };

@@ -9,7 +9,7 @@ import decodeHTML from "@/utils/decodeHTML";
 
 const RadioDefault = ({
     questionData = [],
-    onChange,
+    handleAnswer,
     nextQuestion = "",
     submitText = "",
 }) => {
@@ -22,10 +22,7 @@ const RadioDefault = ({
                 </p>
                 <RadioGroup
                     value={selected}
-                    onChange={(e) => {
-                        setSelected(e);
-                        onChange(e);
-                    }}
+                    onChange={setSelected}
                     className="space-y-2"
                 >
                     {questionData.allAnswers.map((answer, id) => (
@@ -49,6 +46,7 @@ const RadioDefault = ({
                     text={submitText}
                     className="w-full mt-5"
                     passFunc={() => {
+                        handleAnswer(selected);
                         nextQuestion();
                         setSelected(null);
                     }}
