@@ -10,12 +10,19 @@ import {
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid";
 import { CheckIcon } from "@heroicons/react/20/solid";
 
+interface DropdownDefaultProps {
+    heading: string;
+    dataToDisplay: any[];
+    defaultValue: number;
+    onChange: (e: any[]) => void;
+}
+
 const DropdownDefault = ({
     heading = "",
     dataToDisplay = [],
     defaultValue = 1,
     onChange,
-}) => {
+}: DropdownDefaultProps) => {
     const [selected, setSelected] = useState(dataToDisplay[defaultValue - 1]);
     return (
         <div>

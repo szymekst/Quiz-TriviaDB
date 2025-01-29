@@ -6,7 +6,11 @@ export const metadata = {
         "Test your knowledge with quizzes based on a database of questions from Trivia DB.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
     return (
         <html lang="en">
             <body className="bg-gray-100">{children}</body>
